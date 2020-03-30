@@ -10,900 +10,921 @@ grouping
 
 */
 
-@import '_selectors';
-@import "general";
+@import "_selectors";
+@import "_general";
 
-@import "responsive";
-@import '_flaticon';
-@import 'fontawesome/fontawesome';
-@import "fontawesome/solid.scss";
-@import "fontawesome/brands.scss";
+@import "_responsive";
+@import "_flaticon";
+@import "fontawesome/_fontawesome";
+@import "fontawesome/_solid.scss";
+@import "fontawesome/_brands.scss";
 
 /* START STYLING NAVBAR
 ****************************/
-
 
 h1,
 h2,
 h3,
 h4,
 h5 {
-    font-family: 'Abril Fatface', cursive;
-    margin-top: 0;
-    color: $mainColor;
+  font-family: "Abril Fatface", cursive;
+  margin-top: 0;
+  color: $mainColor;
 }
 
 i {
-    font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Free";
 }
 
 .features i {
-    font-family: "Flaticon";
-    font-style: normal;
+  font-family: "Flaticon";
+  font-style: normal;
 }
 
 p,
 a {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-
 .navbar-inverse {
-    padding-top: 10px;
-    background: none;
-    border: none;
-    // color: $white;
-    height: 60px;
-    animation-delay: 1s;
-    animation-duration: 1s;
-    z-index: 99999;
+  padding-top: 10px;
+  background: none;
+  border: none;
+  // color: $white;
+  height: 60px;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  z-index: 99999;
 }
 
 .header {
-    position: relative;
-    background: url(../images/hero.png);
-    background-size: cover;
-    background-position: 50% 30%;
-    height: 100vh;
-    width: 100vw;
+  position: relative;
+  background: url(../images/hero.png);
+  background-size: cover;
+  background-position: 50% 30%;
+  height: 100vh;
+  width: 100vw;
+  @media #{$max-medium} {
+    height: 80vh;
+  }
 }
 
 .navbar-header {
-    width: 20%;
-    float: left;
+  width: 20%;
+  float: left;
 
-    @media #{$max-mobile} {
-        width: 100%;
-    }
+  @media #{$max-mobile} {
+    width: 100%;
+  }
 }
 
 .navbar-collapse {
-    width: 100%;
-    margin: 0;
-    margin-right: 0 !important;
+  width: 100%;
+  margin: 0;
+  margin-left: 0 !important;
+  text-align: center;
 
-    @media #{$max-mobile} {
-        background-color: $mainColor;
+  @media #{$max-mobile} {
+    background-color: $white;
+    a {
+      color: $mainColor;
     }
+  }
 }
 
 .navbar-inverse .navbar-brand {
-    font-weight: bold;
-    color: $white;
-    letter-spacing: 4px;
-    font-size: 30px;
-    padding: 0;
-    padding-top: 10px;
-    float: left !important;
-    font-weight: 20px;
-    font-family: 'lobster';
-    @include transition();
+  font-weight: bold;
+  color: $white;
+  letter-spacing: 4px;
+  font-size: 30px;
+  padding: 0;
+  padding-top: 10px;
+  float: left !important;
+  font-weight: 20px;
+  font-family: "lobster";
+  @include transition();
 
-    img {
-        width: 150px;
+  img {
+    width: 150px;
 
-        @media #{$max-mobile} {
-            position: absolute;
-            left: 20px;
-            width: 150px;
-        }
+    @media #{$max-mobile} {
+      position: absolute;
+      left: 20px;
+      width: 150px;
     }
+  }
 
-    &:hover {
-        color: $secColor;
-    }
+  &:hover {
+    color: $secColor;
+  }
 }
 
 .navbar-toggle {
-    float: right;
-    margin-right: 0px;
-    background: $white;
+  float: right;
+  margin-right: 0px;
+  background: $white;
+  border: 0;
 
+  .icon-bar {
+    @include gradient($blue, $blue-light);
+  }
+
+  &:hover,
+  &:focus {
+    @include gradient($blue, $blue-light);
     .icon-bar {
-        background-color: $mainColor !important;
+      background: $white !important;
     }
-
-    &:hover,
-    &:focus {
-        background: $thirdColor !important;
-
-        .icon-bar {
-            background: $white !important;
-        }
+  }
+}
+.navbar-nav {
+  .btn-primary {
+    background: $white !important;
+    color: $blue !important;
+    border: 1px solid $white !important;
+    &:hover {
+      background: transparent !important;
+      color: $white !important;
+      border: 1px solid $white !important;
     }
+  }
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: $white;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 15px;
+  @include transition();
+
+  &:hover,
+  &:focus {
+    color: darken($white, 15%);
+  }
+  @media #{$max-mobile} {
+    color: $mainColor;
+  }
 }
 
-.navbar-inverse .navbar-nav>li>a {
-    color: $white;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 15px;
-    @include transition();
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background: transparent;
 
-    &:hover,
-    &:focus {
-        color: darken($white, 15%);
-    }
-
-}
-
-.navbar-inverse .navbar-nav>.active>a,
-.navbar-inverse .navbar-nav>.active>a:hover,
-.navbar-inverse .navbar-nav>.active>a:focus {
-    background: transparent;
-
+  &:after {
+    content: "";
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    background: $white;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media #{$max-mobile} {
+    color: $mainColor;
     &:after {
-        content: '';
-        width: 30px;
-        height: 2px;
-        position: absolute;
-        bottom: 0;
-        background: $white;
-        left: 0;
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
+      background: $mainColor;
     }
-
+  }
 }
 
-.navbar-inverse .navbar-nav>.open>a,
-.navbar-inverse .navbar-nav>.open>a:hover,
-.navbar-inverse .navbar-nav>.open>a:focus {
-    background: none;
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background: none;
 }
 
 .affix {
-    @include gradient($blue, $blue-light);
-    width: 100%;
-    height: 75px;
-    z-index: 999;
-    @include shadow(0px, 0px, 25px, -3px, $black);
-    border: none;
-    border-radius: 0;
-    color: inherit;
-    @include transition();
+  @include gradient($blue, $blue-light);
+  width: 100%;
+  height: 75px;
+  z-index: 999;
+  @include shadow(0px, 0px, 25px, -3px, $black);
+  border: none;
+  border-radius: 0;
+  color: inherit;
+  @include transition();
 
-    li a {
-        color: $white;
-    }
-
-
+  li a {
+    color: $white;
+  }
 }
-
-
-
 
 /*START STYLING JUMPOTRON
 ***************************/
 
 .tron {
-    color: $mainColor;
-    max-width: 350px;
-    margin-top: 120px;
-    margin-bottom: 30px;
-
-    @media #{$max-mobile} {
-        text-align: center;
-    }
+  color: $mainColor;
+  max-width: 350px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10%;
+  @media #{$max-mobile} {
+    text-align: center;
+  }
 }
 
 .tron h1 {
-    font-size: 6rem;
-    animation-delay: 1.3s;
-    animation-duration: 1s;
-
+  font-size: 6rem;
+  animation-delay: 1.3s;
+  animation-duration: 1s;
+  @media #{$max-mobile} {
+    font-size: 4rem;
+  }
 }
 
-
-
 .tron p {
-    margin-top: 30px;
-    color: darken($grey, 40%);
-    animation-delay: 1.3s;
-    animation-duration: 1s;
+  margin-top: 30px;
+  color: darken($grey, 40%);
+  animation-delay: 1.3s;
+  animation-duration: 1s;
 }
 
 .tron .btns {
-    animation-delay: 2s;
-    animation-duration: 1s;
+  animation-delay: 2s;
+  animation-duration: 1s;
 }
 
 .tron .btns .btn {
-    margin-top: 30px;
-    border-radius: 0px;
-    font-size: 1em;
+  margin-top: 30px;
+  border-radius: 0px;
+  font-size: 1em;
 }
 
 .tron .btns i {
-    font-size: 1.3em;
-
+  font-size: 1.3em;
+}
+.shape1 {
+  position: absolute;
+  -webkit-animation: rotating 5s linear infinite;
+  -moz-animation: rotating 5s linear infinite;
+  -ms-animation: rotating 5s linear infinite;
+  -o-animation: rotating 5s linear infinite;
+  animation: rotating 5s linear infinite;
+  @media #{$max-mobile} {
+    display: none;
+  }
+}
+.green-cross {
+  height: 50px;
+  width: 50px;
+  top: 150px;
+  right: -50px;
+}
+.orange-square {
+  height: 60px;
+  width: 60px;
+  top: 0px;
+  left: 0px;
+}
+.green-square {
+  height: 80px;
+  width: 80px;
+  bottom: -50px;
+  right: 20px;
+}
+.orange-cross {
+  bottom: -120px;
+}
+@keyframes rotating {
+  from {
+    @include rotateZ(0);
+  }
+  to {
+    @include rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotating {
+  from {
+    @include rotateZ(0);
+  }
+  to {
+    @include rotateZ(360deg);
+  }
 }
 
 .btn-success {
-    background: $thirdColor;
-    color: $mainColor !important;
-    border: 2px solid $thirdColor;
-    border-radius: 25px !important;
-    padding: 10px 30px !important;
-    @include transition();
+  background: $thirdColor;
+  color: $mainColor !important;
+  border: 2px solid $thirdColor;
+  border-radius: 25px !important;
+  padding: 10px 30px !important;
+  @include transition();
 
-    &:hover,
-    &:focus {
-        background: transparent;
-        color: $thirdColor !important;
-        border: 2px solid $thirdColor;
-    }
+  &:hover,
+  &:focus {
+    background: transparent;
+    color: $thirdColor !important;
+    border: 2px solid $thirdColor;
+  }
 }
 
 .btn-primary {
-    @include gradient($blue, $blue-light);
-    color: $white !important;
-    border-radius: 0px !important;
-    font-size: 13px;
-    border-bottom-right-radius: 35px !important;
-    padding: 17px 39px !important;
-    border: 0;
-    @include shadow(0px, 5px, 40px, -5px, rgba($blue, 0.6));
-    @include transition();
+  @include gradient($blue, $blue-light);
+  color: $white !important;
+  border-radius: 0px !important;
+  font-size: 13px;
+  border-bottom-right-radius: 35px !important;
+  padding: 17px 39px !important;
+  border: 0;
+  @include shadow(0px, 5px, 40px, -5px, rgba($blue, 0.6));
+  @include transition();
 
-    &:hover,
-    &:focus {
-        @include gradient($blue-light, $blue);
-        color: $white !important;
-    }
+  &:hover,
+  &:focus {
+    @include gradient($blue-light, $blue);
+    color: $white !important;
+  }
 }
 
-.tron .btns .btn-primary {}
-
 .tron .btns .btn-danger {
-    margin-left: 10px;
-    @include transition();
-
-    &:hover,
-    &:active {}
+  margin-left: 10px;
+  @include transition();
 }
 
 .img-cont {
-    position: absolute;
-    right: 0px;
-
-
-    img {
-        max-width: 700px;
-    }
+  width: 100%;
+  height: 100%;
 }
 
-
-
-// styling about us section 
+// styling about us section
 .aboutus {
-    padding-top: 150px;
-
-    .content {
-        display: flex;
-        justify-content: center;
-        position: relative;
-
-        .card {
-            background: $white;
-            @include shadow(0px, 5px, 35px, -10px, rgba($black, 0.3));
-            border-top-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            max-width: 70vw;
-            padding: 50px;
-            position: relative;
-
-            .about-text {
-                h1 {
-                    margin-top: 20px;
-                    margin-bottom: 30px;
-                }
-            }
-        }
+  padding-top: 150px;
+  img {
+    @media #{$max-mobile} {
+      margin-bottom: 20px;
     }
-
-}
-
-// styling services section 
-.features {
-    h1 {
-        margin-top: 20px;
-    }
-
-    .section-content {
-        margin-top: 100px;
-
-        .card {
-            @include transition();
-            @include shadow(0px, 5px, 25px, -5px, rgba($black, 0.2));
-            padding: 20px;
-            margin-bottom: 30px;
-            height: 200px;
-            background-color: $white;
-            @extend %radius;
-
-
-            &:hover {
-                .icon {
-                    @include rotateY(180deg);
-                }
-
-            }
-
-            .card-body {
-                display: block;
-
-                .icon,
-                .feature-text {
-                    display: inline-block;
-                }
-
-                .icon {
-
-                    @extend %radius;
-                    float: left;
-                    padding: 10px;
-                    height: 80px;
-                    width: 80px;
-                    text-align: center;
-                    @include transition();
-
-                    i {
-                        color: $white;
-                        font-size: 4rem;
-                    }
-
-                }
-
-                .feature-text {
-                    width: 60%;
-                    margin-left: 20px;
-
-                    h3 {
-                        margin-bottom: 20px;
-                    }
-
-                }
-            }
-        }
-    }
-}
-
-
-// styling web development section 
-
-.web {
+  }
+  .content {
+    display: flex;
+    justify-content: center;
     position: relative;
 
-    .abstract,
-    .abstract1 {
-        position: absolute;
-        top: -100px;
-        width: 650px;
-    }
+    .card {
+      background: $white;
+      @include shadow(0px, 5px, 35px, -10px, rgba($black, 0.3));
+      border-top-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      max-width: 70vw;
+      padding: 50px;
+      position: relative;
+      @media #{$max-medium} {
+        padding: 20px;
+        max-width: 100vw;
+      }
 
-    .abstract {
-        right: 0;
-    }
-
-    .abstract1 {
-        left: 0;
-    }
-
-    .section-content {
-        .web-text {
-            max-width: 400px;
-
-            h1 {
-                margin-bottom: 30px;
-            }
-
-            p {
-                line-height: 2.5rem;
-            }
+      .about-text {
+        h1 {
+          margin-top: 20px;
+          margin-bottom: 30px;
         }
+      }
     }
+  }
 }
 
-// start styling Our protofolio section 
+// styling services section
+.features {
+  h1 {
+    margin-top: 20px;
+  }
 
+  .section-content {
+    margin-top: 100px;
 
+    .card {
+      @include transition();
+      @include shadow(0px, 5px, 25px, -5px, rgba($black, 0.2));
+      padding: 20px;
+      margin-bottom: 30px;
+      min-height: 200px;
+      background-color: $white;
+      @extend %radius;
 
+      &:hover {
+        .icon {
+          @include rotateY(180deg);
+        }
+      }
+
+      .card-body {
+        display: block;
+
+        .icon,
+        .feature-text {
+          display: inline-block;
+        }
+
+        .icon {
+          @extend %radius;
+          float: left;
+          padding: 10px;
+          height: 80px;
+          width: 80px;
+          text-align: center;
+          @include transition();
+
+          i {
+            color: $white;
+            font-size: 4rem;
+          }
+        }
+
+        .feature-text {
+          width: 60%;
+          margin-left: 20px;
+
+          h3 {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// styling web development section
+
+.web {
+  position: relative;
+
+  .abstract,
+  .abstract1 {
+    position: absolute;
+    top: -100px;
+    width: 650px;
+    @media #{$max-mobile} {
+      width: 200px;
+      top: 0;
+    }
+  }
+
+  .abstract {
+    right: 0;
+  }
+
+  .abstract1 {
+    left: 0;
+  }
+  .img-container {
+    margin-bottom: 10px;
+  }
+  .section-content {
+    .web-text {
+      max-width: 400px;
+
+      h1 {
+        margin-bottom: 30px;
+      }
+
+      p {
+        line-height: 2.5rem;
+      }
+    }
+  }
+}
+
+// start styling Our protofolio section
 
 .portofolio {
-    .line {
-        position: relative;
-        bottom: 25px;
-        z-index: 5;
-    }
+  .line {
+    position: relative;
+    bottom: 25px;
+    z-index: 5;
+  }
 
-    h1 {
-        margin-top: 0;
+  h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  // .portofolio-filter {
+  //     @extend %nav;
+  // }
+  ul {
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+      margin-right: 20px;
+      margin-top: 50px;
+      margin-left: 20px;
+      cursor: pointer;
+
+      &.active {
+        @include gradient($orange, $orange-light);
+        color: $white;
+        padding: 10px 20px;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+    }
+  }
+
+  .grid {
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+    .item {
+      .img-container {
+        border-radius: 25px;
+        border: 15px solid $white;
         margin-bottom: 20px;
-    }
+        position: relative;
+        overflow: hidden;
+        @include shadow(0px, 5px, 25px, -10px, rgba($black, 0.3));
 
-    // .portofolio-filter {
-    //     @extend %nav;
-    // }
-    ul {
-        list-style-type: none;
+        &:hover {
+          .img-desc {
+            opacity: 1;
+          }
+        }
+      }
 
-        li {
-            display: inline-block;
-            margin-right: 20px;
-            margin-top: 50px;
-            margin-left: 20px;
-            cursor: pointer;
+      img {
+        opacity: 1;
+        width: 100%;
+        height: 150px;
+        // border-radius: 25px;
 
-            &.active {
-                @include gradient($orange, $orange-light);
-                color: $white;
-                padding: 10px 20px;
-                border-top-left-radius: 15px;
-                border-bottom-right-radius: 15px;
-            }
+        // border: 10px solid $white;
+        // @include shadow(0px, 5px, 25px, -10px, rgba($black, 0.3));
+
+        @media #{$max-mobile} {
+          height: 220px;
+        }
+      }
+
+      position: relative;
+
+      .img-desc {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+        top: 0;
+        color: $white;
+        background: rgba($blue, 0.8);
+        opacity: 0;
+
+        h3 {
+          color: $white;
         }
 
-    }
+        @include transition();
 
-    .grid {
-        margin-top: 50px;
-        margin-bottom: 100px;
+        .desc {
+          position: relative;
+          top: 25%;
+          z-index: 100;
 
-        .item {
+          .icons {
+            text-align: center;
 
-
-            .img-container {
-                border-radius: 25px;
-                border: 15px solid $white;
-                margin-bottom: 20px;
-                position: relative;
-                overflow: hidden;
-                @include shadow(0px, 5px, 25px, -10px, rgba($black, 0.3));
-
-                &:hover {
-                    .img-desc {
-                        opacity: 1;
-                    }
-                }
+            .icon {
+              display: inline-block;
+              margin-right: 10px;
+              margin-left: 10px;
+              margin-top: 10px;
+              color: $blue;
+              height: 40px;
+              width: 40px;
+              border-radius: 50%;
+              background-color: $white;
+              line-height: 40px;
             }
-
-
-
-            img {
-                opacity: 1;
-                width: 100%;
-                height: 150px;
-                // border-radius: 25px;
-
-                // border: 10px solid $white;
-                // @include shadow(0px, 5px, 25px, -10px, rgba($black, 0.3));
-
-                @media #{$max-mobile} {
-                    height: 350px;
-                }
-
-                @media #{$max-mobile} {
-                    height: 300px;
-                }
-
-            }
-
-            position: relative;
-
-
-            .img-desc {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                z-index: 9;
-                top: 0;
-                color: $white;
-                background: rgba($blue, 0.8);
-                opacity: 0;
-
-                h3 {
-                    color: $white;
-                }
-
-                @include transition();
-
-                .desc {
-                    position: relative;
-                    top: 25%;
-                    z-index: 100;
-
-                    .icons {
-                        text-align: center;
-
-                        .icon {
-                            display: inline-block;
-                            margin-right: 10px;
-                            margin-left: 10px;
-                            margin-top: 10px;
-                            color: $blue;
-                            height: 40px;
-                            width: 40px;
-                            border-radius: 50%;
-                            background-color: $white;
-                            line-height: 40px;
-
-                        }
-                    }
-                }
-            }
+          }
         }
+      }
     }
+  }
 }
 
-// start styling careers section 
+// start styling careers section
 .careers {
-    // background: url(../images/team.jpg) no-repeat fixed;
-    // background-position: 50% 50%;
-    // background-size: cover;
+  .careers-text {
+    max-width: 350px;
+    @media #{$max-medium} {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  h1,
+  span,
+  p {
+    // color: $white;
+    margin-bottom: 30px;
+  }
+
+  .shape {
+    display: inline-block;
+    margin-top: 20px;
     // position: relative;
-    // border-bottom-right-radius: 100px;
-    // border-top-left-radius: 100px;
-    // overflow: hidden;
 
-    .careers-text {
-        max-width: 350px;
+    @for $i from 1 through 4 {
+      .card#{$i} {
+        @include shadow(0px, 0px, 35px, -5px, rgba($black, 0.3));
+        position: relative;
+        z-index: 200;
+        .icon {
+          height: 50px;
+          width: 50px;
+          position: relative;
+          margin-bottom: 20px;
+          line-height: 50px;
+          border-radius: 50%;
+          margin-left: auto;
+          margin-right: auto;
+          @include gradient($blue, $blue-light);
+
+          i {
+            font-size: 2rem;
+            color: $white;
+          }
+        }
+      }
     }
-
-    h1,
-    span,
-    p {
-        // color: $white;
-        margin-bottom: 30px;
-
+    .wave,
+    .wave1 {
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-right: auto;
+      margin-left: auto;
+      line-height: 60px;
+      border-radius: 50%;
+      font-size: 25px;
+      @include gradient($blue, $blue-light);
+      z-index: -1;
     }
+    .wave {
+      animation: pulseEffect 2s infinite linear;
+    }
+    .wave1 {
+      animation: pulseEffect1 2s infinite linear;
+    }
+    @-webkit-keyframes pulseEffect {
+      from {
+        transform: scale(0.5);
+        opacity: 0.4;
+      }
+      to {
+        transform: scale(2.7);
+        opacity: 0;
+      }
+    }
+    @-webkit-keyframes pulseEffect1 {
+      from {
+        transform: scale(0);
+        opacity: 0.6;
+      }
+      to {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+    .first-level {
+      margin-bottom: 20px;
 
-    .shape {
+      .card1,
+      .card2 {
         display: inline-block;
-        // position: relative;
+        margin-right: 20px;
+        background: $white;
+        padding: 20px;
+        @media #{$max-mobile} {
+          margin-right: 5px;
+          padding: 10px;
+        }
+      }
+
+      .card1 {
+        border-top-left-radius: 25px;
+        width: 170px;
+        height: 170px;
+        @media #{$max-mobile} {
+          width: 120px;
+        }
+      }
+
+      .card2 {
+        width: 140px;
+        height: 140px;
+        position: relative;
+        top: 30px;
+        z-index: 10;
+        @media #{$max-mobile} {
+          width: 100px;
+        }
+        // &:after {
+        //   content: "";
+        //   position: absolute;
+        //   @include gradient($orange, $orange-light);
+        //   top: -10px;
+        //   right: -10px;
+        //   height: 100px;
+        //   width: 100px;
+        //   z-index: -2;
+        //   border-bottom-right-radius: 25px;
+        //   border-top-left-radius: 25px;
+        // }
+      }
+    }
+
+    .second-level {
+      .card3,
+      .card4 {
+        display: inline-block;
+        margin-right: 20px;
+        background: $white;
+        padding: 20px;
+        @media #{$max-mobile} {
+          margin-right: 5px;
+          padding: 10px;
+        }
+      }
+
+      .card3 {
+        width: 140px;
+        height: 140px;
+        position: relative;
+        bottom: 0px;
+        z-index: 10;
+        @media #{$max-mobile} {
+          width: 100px;
+        }
+        // &:after {
+        //   content: "";
+        //   position: absolute;
+        //   @include gradient($green, $green-light);
+        //   bottom: -10px;
+        //   left: -10px;
+        //   height: 100px;
+        //   width: 100px;
+        //   z-index: -1;
+        //   border-bottom-right-radius: 25px;
+        //   border-top-left-radius: 25px;
+        // }
+      }
+
+      .card4 {
+        width: 170px;
+        height: 170px;
+        border-bottom-right-radius: 25px;
+        @media #{$max-mobile} {
+          width: 120px;
+        }
+      }
+    }
+  }
+}
+
+// style contact us section
+.contact {
+  .section-content {
+    .contact-info {
+      margin-top: 50px;
+
+      .item {
+        margin-bottom: 30px;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
 
         @for $i from 1 through 4 {
-            .card#{$i} {
-                @include shadow(0px, 0px, 35px, -5px, rgba($black, 0.3));
+          .icon#{$i} {
+            float: left;
+            height: 70px;
+            width: 70px;
+            line-height: 70px;
+            text-align: center;
+            border-bottom-right-radius: 15px;
+            border-top-left-radius: 15px;
 
-                .icon {
-                    height: 50px;
-                    width: 50px;
-                    margin-bottom: 20px;
-                    line-height: 50px;
-                    border-radius: 50%;
-                    margin-left: auto;
-                    margin-right: auto;
-
-                    i {
-                        font-size: 2rem;
-                    }
-                }
+            i {
+              font-size: 1.7rem;
             }
+          }
 
+          .icon1 {
+            background: lighten($orange, 20%);
+            i {
+              color: $orange;
+            }
+          }
+
+          .icon2 {
+            background: lighten($green, 40%);
+            i {
+              color: $green;
+            }
+          }
+
+          .icon3 {
+            background: lighten($purple, 40%);
+            i {
+              color: $purple;
+            }
+          }
         }
 
-        .first-level {
-            margin-bottom: 20px;
-
-
-
-            .card1,
-            .card2 {
-                display: inline-block;
-                margin-right: 20px;
-                background: $white;
-                padding: 20px;
-            }
-
-            .card1 {
-                border-top-left-radius: 25px;
-                width: 170px;
-                height: 170px;
-
-                .icon {
-                    background: lighten($blue, 35%);
-
-                    i {
-                        color: $blue;
-                    }
-                }
-            }
-
-            .card2 {
-                width: 140px;
-                height: 140px;
-                position: relative;
-                top: 30px;
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    @include gradient($orange, $orange-light);
-                    top: -10px;
-                    right: -10px;
-                    height: 100px;
-                    width: 100px;
-                    z-index: -1;
-                    border-bottom-right-radius: 25px;
-                    border-top-left-radius: 25px;
-                }
-
-                .icon {
-                    background: lighten($orange, 10%);
-
-                    i {
-                        color: $orange;
-                    }
-                }
-            }
+        .info {
+          float: left;
+          margin-top: 10px;
+          margin-left: 20px;
         }
-
-        .second-level {
-
-            .card3,
-            .card4 {
-                display: inline-block;
-                margin-right: 20px;
-                background: $white;
-                padding: 20px;
-            }
-
-            .card3 {
-
-                width: 140px;
-                height: 140px;
-                position: relative;
-                bottom: 0px;
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    @include gradient($green, $green-light);
-                    bottom: -10px;
-                    left: -10px;
-                    height: 100px;
-                    width: 100px;
-                    z-index: -1;
-                    border-bottom-right-radius: 25px;
-                    border-top-left-radius: 25px;
-                }
-
-                .icon {
-                    background: lighten($green, 35%);
-
-                    i {
-                        color: $green;
-                    }
-                }
-            }
-
-            .card4 {
-                width: 170px;
-                height: 170px;
-                border-bottom-right-radius: 25px;
-
-
-
-                .icon {
-                    background: lighten($purple, 35%);
-
-                    i {
-                        color: $purple;
-                    }
-                }
-            }
-        }
+      }
     }
+    .contact-form {
+      margin-top: 50px;
+      max-width: 500px;
+      @media #{$max-medium} {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
 }
 
-// style contact us section 
-.contact {
-    .section-content {
-        .contact-info {
-            margin-top: 50px;
-
-            .item {
-                margin-bottom: 30px;
-                max-width: 300px;
-                margin-left: auto;
-                margin-right: auto;
-
-                @for $i from 1 through 4 {
-                    .icon#{$i} {
-                        float: left;
-                        height: 70px;
-                        width: 70px;
-                        line-height: 70px;
-                        text-align: center;
-                        border-bottom-right-radius: 15px;
-                        border-top-left-radius: 15px;
-                        @include shadow(0px, 5px, 25px, -5px, rgba($black, 0.2));
-
-                        i {
-                            font-size: 1.7rem;
-                        }
-                    }
-
-                    .icon1 {
-                        i {
-                            color: $orange;
-                        }
-                    }
-
-                    .icon2 {
-                        i {
-                            color: $green;
-                        }
-                    }
-
-                    .icon3 {
-                        i {
-                            color: $purple;
-                        }
-                    }
-                }
-
-                .info {
-                    float: left;
-                    margin-top: 10px;
-                    margin-left: 20px;
-                }
-            }
-        }
-    }
+.form-group label {
+  margin-left: 10px;
 }
 
+.form-group input,
+.form-group select {
+  border-radius: 25px;
+  border: 0;
+  background: $white;
+  @include shadow(0px, 5px, 30px, -5px, rgba($black, 0.2));
+}
 
-// .form-group label {
-//     margin-left: 10px;
-// }
+.form-group input,
+.contact .form-group textarea::-webkit-input-placeholder {
+  font-size: 15px;
+}
 
-// .form-group input,
-// .form-group select {
-//     border-radius: 25px;
-//     border: 0;
-//     background: $secColor;
-//     @include shadow(0px, 5px, 30px, -5px, #000);
-// }
-
-// .form-group input,
-// .contact .form-group textarea::-webkit-input-placeholder {
-//     font-size: 15px;
-
-
-// }
-
-// .form-group textarea {
-//     border-radius: 25px;
-//     height: 150px;
-//     background: $secColor;
-//     border: 0;
-//     @include shadow(0px, 5px, 30px, -5px, #000);
-
-// }
-
-// .contact .btn-success {
-//     margin-top: 20px;
-//     background-color: $thirdColor;
-//     padding: 10px 30px 10px 30px;
-//     border-radius: 25px;
-//     font-size: 1.4em;
-//     border: 2px solid $thirdColor;
-//     @include transition();
-
-//     &:hover {
-//         background-color: transparent;
-//         color: $thirdColor !important;
-//         border: 2px solid $thirdColor !important;
-//     }
-// }
-
-// .contact .cards {
-//     padding-left: 100px;
-
-// }
-
-// .contact .cards {
-//     .card {
-//         width: 100%;
-//         max-width: 250px;
-//         display: block;
-//         height: 100px;
-//         position: relative;
-
-//         .icon4 {
-//             float: left;
-//             width: 25%;
-//         }
-
-//         .text {
-//             width: 75%;
-//             float: right;
-//         }
-//     }
-// }
-
-// .contact .card .icon4 i {
-//     color: $mainColor;
-//     font-size: 3em;
-// }
-
+.form-group textarea {
+  border-radius: 25px;
+  height: 150px;
+  background: $white;
+  border: 0;
+  @include shadow(0px, 5px, 30px, -5px, rgba($black, 0.2));
+}
 
 /* start styling follow Us section
 ******************************************/
 
-
-// .follow {
-//     padding-bottom: 10px;
-//     background-color: $thirdColor;
-
-//     h1 {
-//         color: $mainColor;
-//     }
-// }
-
-// .follow .icon5 {
-//     margin: 50px 50px;
-// }
-
-// .follow .icon5 .icon {
-//     display: inline-block;
-//     height: 50px;
-//     width: 50px;
-//     line-height: 50px;
-//     font-size: 1.65em;
-//     border-radius: 50%;
-//     border: 2px solid $mainColor;
-//     color: $mainColor;
-//     cursor: pointer;
-//     @include transition;
-
-//     i {
-//         color: $mainColor;
-//     }
-
-//     &:hover {
-//         background-color: $mainColor;
-//         color: $thirdColor;
-
-//         i {
-//             color: $thirdColor;
-//         }
-//     }
-// }
-
-// .follow hr {
-//     border: 0.5px solid $mainColor;
-// }
-
-// .follow .text {
-//     color: $mainColor;
-//     margin-top: 50px;
-// }
-
-// .follow .text p span {
-//     color: $secColor;
-//     font-weight: bold;
-// }
+.footer {
+  background: url(../images/footer.png) no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  img {
+    width: 200px;
+  }
+  .footer-content {
+    margin-top: 100px;
+  }
+  .social-media {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    margin-top: 50px;
+    .icon {
+      height: 60px;
+      width: 60px;
+      line-height: 60px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-bottom-right-radius: 25px;
+      background-color: $white;
+      display: inline-block;
+      @media #{$max-mobile} {
+        height: 35px;
+        width: 35px;
+        line-height: 35px;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+      i {
+        color: $blue;
+        font-size: 1.7rem;
+        @media #{$max-mobile} {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+.credits {
+  background-color: $mainColor;
+}

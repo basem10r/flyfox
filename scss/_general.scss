@@ -1,0 +1,152 @@
+@import "framework";
+@import "variables";
+@import "loader";
+body {
+  letter-spacing: 0px;
+  margin: 0;
+  padding: 0;
+  color: lighten(gray, 2%);
+  background: $white;
+
+  overflow-x: hidden;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  height: 6000px;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.9;
+  right: 0;
+  @include gradient($blue, $blue-light);
+}
+
+.blue-bg {
+  @include gradient($blue, $blue-light);
+}
+
+.green-bg {
+  @include gradient($green, $green-light);
+}
+
+.orange-bg {
+  @include gradient($orange, $orange-light);
+}
+
+.purple-bg {
+  @include gradient($purple, $purple-light);
+}
+
+// adding colored layer
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.75);
+}
+
+// main section style
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.section {
+  @media #{$max-mobile} {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    h1 {
+      font-size: 2.5rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+}
+.head-label {
+  margin-bottom: 30px;
+
+  span {
+    color: $orange-light;
+    letter-spacing: 10px;
+  }
+}
+
+.modal {
+  z-index: 999999 !important;
+}
+
+.line {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  position: absolute;
+  height: 2px;
+  width: 70px;
+  left: 47.5%;
+  background-color: $mainColor;
+}
+
+%main-background {
+  background: rgba(52, 131, 255, 0.75);
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(205, 15, 216, 0.75) 0%,
+    rgba(52, 131, 255, 0.75) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(205, 15, 216, 0.75) 0%,
+    rgba(52, 131, 255, 0.75) 100%
+  );
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(205, 15, 216, 0.75) 0%,
+    rgba(52, 131, 255, 0.75) 100%
+  );
+  background: linear-gradient(
+    -45deg,
+    rgba(205, 15, 216, 0.75) 0%,
+    rgba(52, 131, 255, 0.75) 100%
+  );
+}
+
+%main-color {
+  color: $mainColor;
+}
+
+%main-h1 {
+  letter-spacing: 1px;
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+}
+
+@mixin main-background {
+  background: rgba(52, 131, 255, 0.75);
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(205, 15, 216, 0.75) 0%,
+    rgba(52, 131, 255, 0.75) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(205, 15, 216, 0.75) 0%,
+    rgba(52, 131, 255, 0.75) 100%
+  );
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(205, 15, 216, 0.75) 0%,
+    rgba(52, 131, 255, 0.75) 100%
+  );
+  background: linear-gradient(
+    -45deg,
+    rgba(205, 15, 216, 0.75) 0%,
+    rgba(52, 131, 255, 0.75) 100%
+  );
+}
+
+@font-face {
+  font-family: brand;
+  src: url(../fonts/Selfie_Printed.otf);
+}

@@ -1,0 +1,77 @@
+body {
+  letter-spacing: 0px;
+  margin: 0;
+  padding: 0;
+  color: #858585;
+  background: white;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+  height: 6000px;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.9;
+  right: 0;
+  background: linear-gradient(45deg, #2193B0, #6DD5ED);
+}
+
+.blue-bg {
+  background: linear-gradient(45deg, #2193B0, #6DD5ED);
+}
+
+.green-bg {
+  background: linear-gradient(45deg, #2CB3A2, #B3FFAB);
+}
+
+.orange-bg {
+  background: linear-gradient(45deg, #FFD17F, #FF7F7F);
+}
+
+.purple-bg {
+  background: linear-gradient(45deg, #654ea3, #eaafc8);
+}
+
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.75);
+}
+
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.head-label {
+  margin-bottom: 30px;
+}
+
+.head-label span {
+  color: #FF7F7F;
+  letter-spacing: 10px;
+}
+
+.modal {
+  z-index: 999999 !important;
+}
+
+.line {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  position: absolute;
+  height: 2px;
+  width: 70px;
+  left: 47.5%;
+  background-color: #151B23;
+}
+
+@font-face {
+  font-family: brand;
+  src: url(../fonts/Selfie_Printed.otf);
+}
+/*# sourceMappingURL=general.css.map */
