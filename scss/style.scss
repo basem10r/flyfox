@@ -56,7 +56,9 @@ a {
   animation-duration: 1s;
   z-index: 99999;
 }
-
+.heading {
+  padding-top: 100px;
+}
 .header {
   position: relative;
   background: url(../images/hero.png);
@@ -64,8 +66,8 @@ a {
   background-position: 50% 30%;
   height: 100vh;
   width: 100vw;
-  @media #{$max-medium} {
-    height: 80vh;
+  .img-container {
+    width: 100%;
   }
 }
 
@@ -219,9 +221,9 @@ a {
   color: $mainColor;
   max-width: 350px;
   position: relative;
+  padding-top: 10%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10%;
   @media #{$max-mobile} {
     text-align: center;
   }
@@ -343,11 +345,6 @@ a {
 .tron .btns .btn-danger {
   margin-left: 10px;
   @include transition();
-}
-
-.img-cont {
-  width: 100%;
-  height: 100%;
 }
 
 // styling about us section
@@ -605,7 +602,9 @@ a {
 
 // start styling careers section
 .careers {
+  position: relative;
   .careers-text {
+    position: relative;
     max-width: 350px;
     @media #{$max-medium} {
       text-align: center;
@@ -613,7 +612,24 @@ a {
       margin-right: auto;
     }
   }
+  .abstract,
+  .abstract1 {
+    position: absolute;
+    top: -100px;
+    width: 650px;
+    @media #{$max-mobile} {
+      width: 200px;
+      top: 0;
+    }
+  }
 
+  .abstract {
+    right: 0;
+  }
+
+  .abstract1 {
+    left: 0;
+  }
   h1,
   span,
   p {
@@ -840,6 +856,7 @@ a {
           float: left;
           margin-top: 10px;
           margin-left: 20px;
+          max-width: 150px;
         }
       }
     }
@@ -849,6 +866,35 @@ a {
       @media #{$max-medium} {
         margin-left: auto;
         margin-right: auto;
+      }
+    }
+  }
+}
+.nav-pills {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  a {
+    background: transparent;
+    color: $mainColor;
+    &:hover,
+    &:focus {
+      background: transparent;
+      color: $blue;
+    }
+  }
+  li {
+    &.active {
+      a {
+        background: transparent;
+        color: $blue;
+        border-bottom: 2px solid $blue;
+        border-radius: 0;
+        &:hover,
+        &:focus {
+          background: transparent;
+          color: $blue;
+        }
       }
     }
   }
@@ -927,4 +973,36 @@ a {
 }
 .credits {
   background-color: $mainColor;
+}
+
+// start styling career page
+// *******************************
+
+.breadcrumb {
+  background: url(../images/breadcrumb.png) no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  h1 {
+    color: $white;
+  }
+  .breadcrumb-nav {
+    margin-top: 40px;
+    padding-left: 0;
+    span {
+      color: $white;
+    }
+    li {
+      display: inline-block;
+      &.active {
+        a {
+          color: $orange;
+        }
+      }
+      a {
+        color: $white;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+  }
 }

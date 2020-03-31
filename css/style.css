@@ -17,8 +17,9 @@ grouping
 .lds-facebook {
   display: inline-block;
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+  right: 15px;
 }
 
 .lds-facebook div {
@@ -90,8 +91,8 @@ grouping
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-transform: scale(1.4);
-  transform: scale(1.4);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 body {
@@ -103,7 +104,6 @@ body {
   overflow-x: hidden;
   overflow: hidden;
   font-family: "Open Sans", sans-serif;
-  height: 6000px;
 }
 
 .overlay {
@@ -178,11 +178,6 @@ body {
   width: 70px;
   left: 47.5%;
   background-color: #151b23;
-}
-
-@font-face {
-  font-family: brand;
-  src: url(../fonts/Selfie_Printed.otf);
 }
 
 @media (max-width: 767px) {
@@ -6303,6 +6298,10 @@ a {
   z-index: 99999;
 }
 
+.heading {
+  padding-top: 100px;
+}
+
 .header {
   position: relative;
   background: url(../images/hero.png);
@@ -6312,10 +6311,8 @@ a {
   width: 100vw;
 }
 
-@media (max-width: 992px) {
-  .header {
-    height: 80vh;
-  }
+.header .img-container {
+  width: 100%;
 }
 
 .navbar-header {
@@ -6490,9 +6487,9 @@ a {
   color: #151b23;
   max-width: 350px;
   position: relative;
+  padding-top: 10%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10%;
 }
 
 @media (max-width: 767px) {
@@ -6640,11 +6637,6 @@ a {
   margin-left: 10px;
   -webkit-transition: all 0.5s ease-in-out 0s;
   transition: all 0.5s ease-in-out 0s;
-}
-
-.img-cont {
-  width: 100%;
-  height: 100%;
 }
 
 .aboutus {
@@ -6899,7 +6891,12 @@ a {
   line-height: 40px;
 }
 
+.careers {
+  position: relative;
+}
+
 .careers .careers-text {
+  position: relative;
   max-width: 350px;
 }
 
@@ -6909,6 +6906,29 @@ a {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.careers .abstract,
+.careers .abstract1 {
+  position: absolute;
+  top: -100px;
+  width: 650px;
+}
+
+@media (max-width: 767px) {
+  .careers .abstract,
+  .careers .abstract1 {
+    width: 200px;
+    top: 0;
+  }
+}
+
+.careers .abstract {
+  right: 0;
+}
+
+.careers .abstract1 {
+  left: 0;
 }
 
 .careers h1,
@@ -7330,6 +7350,7 @@ a {
   float: left;
   margin-top: 10px;
   margin-left: 20px;
+  max-width: 150px;
 }
 
 .contact .section-content .contact-form {
@@ -7342,6 +7363,38 @@ a {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.nav-pills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+}
+
+.nav-pills a {
+  background: transparent;
+  color: #151b23;
+}
+
+.nav-pills a:hover, .nav-pills a:focus {
+  background: transparent;
+  color: #2193b0;
+}
+
+.nav-pills li.active a {
+  background: transparent;
+  color: #2193b0;
+  border-bottom: 2px solid #2193b0;
+  border-radius: 0;
+}
+
+.nav-pills li.active a:hover, .nav-pills li.active a:focus {
+  background: transparent;
+  color: #2193b0;
 }
 
 .form-group label {
@@ -7432,5 +7485,38 @@ a {
 
 .credits {
   background-color: #151b23;
+}
+
+.breadcrumb {
+  background: url(../images/breadcrumb.png) no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.breadcrumb h1 {
+  color: white;
+}
+
+.breadcrumb .breadcrumb-nav {
+  margin-top: 40px;
+  padding-left: 0;
+}
+
+.breadcrumb .breadcrumb-nav span {
+  color: white;
+}
+
+.breadcrumb .breadcrumb-nav li {
+  display: inline-block;
+}
+
+.breadcrumb .breadcrumb-nav li.active a {
+  color: #ffd17f;
+}
+
+.breadcrumb .breadcrumb-nav li a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */

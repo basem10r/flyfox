@@ -11,8 +11,8 @@ $(window).on("load", function() {
 });
 
 $(document).ready(function() {
-  $(document).on("click touchend", function() {
-    $(".dropdown-toggle").removeClass("open");
+  $(".navbar-nav>li>a").on("click", function() {
+    $(".navbar-collapse").collapse("hide");
   });
 
   var $grid = $(".grid").isotope({
@@ -111,16 +111,15 @@ $(document).ready(function() {
   });
 
   $(".timer").countTo();
-
-  $(window).scroll(function() {
-    console.log($(this).scrollTop());
-    if ($(this).scrollTop() >= 500) {
-      $(".logo-white").css("display", "block");
-      $(".logo-dark").css("display", "none");
-    } else {
-      $(".logo-dark").css("display", "block");
-      $(".logo-white").css("display", "none");
-    }
-    /* Act on the event */
-  });
+});
+$(window).scroll(function() {
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop() >= 100) {
+    $(".logo-white").css("display", "block");
+    $(".logo-dark").css("display", "none");
+  } else {
+    $(".logo-dark").css("display", "block");
+    $(".logo-white").css("display", "none");
+  }
+  /* Act on the event */
 });

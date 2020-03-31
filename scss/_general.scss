@@ -11,7 +11,6 @@ body {
   overflow-x: hidden;
   overflow: hidden;
   font-family: "Open Sans", sans-serif;
-  height: 6000px;
 }
 
 .overlay {
@@ -86,67 +85,4 @@ body {
   width: 70px;
   left: 47.5%;
   background-color: $mainColor;
-}
-
-%main-background {
-  background: rgba(52, 131, 255, 0.75);
-  background: -webkit-linear-gradient(
-    -45deg,
-    rgba(205, 15, 216, 0.75) 0%,
-    rgba(52, 131, 255, 0.75) 100%
-  );
-  background: -o-linear-gradient(
-    -45deg,
-    rgba(205, 15, 216, 0.75) 0%,
-    rgba(52, 131, 255, 0.75) 100%
-  );
-  background: -moz-linear-gradient(
-    -45deg,
-    rgba(205, 15, 216, 0.75) 0%,
-    rgba(52, 131, 255, 0.75) 100%
-  );
-  background: linear-gradient(
-    -45deg,
-    rgba(205, 15, 216, 0.75) 0%,
-    rgba(52, 131, 255, 0.75) 100%
-  );
-}
-
-%main-color {
-  color: $mainColor;
-}
-
-%main-h1 {
-  letter-spacing: 1px;
-  font-family: "Rubik", sans-serif;
-  text-align: center;
-}
-
-@mixin main-background {
-  background: rgba(52, 131, 255, 0.75);
-  background: -webkit-linear-gradient(
-    -45deg,
-    rgba(205, 15, 216, 0.75) 0%,
-    rgba(52, 131, 255, 0.75) 100%
-  );
-  background: -o-linear-gradient(
-    -45deg,
-    rgba(205, 15, 216, 0.75) 0%,
-    rgba(52, 131, 255, 0.75) 100%
-  );
-  background: -moz-linear-gradient(
-    -45deg,
-    rgba(205, 15, 216, 0.75) 0%,
-    rgba(52, 131, 255, 0.75) 100%
-  );
-  background: linear-gradient(
-    -45deg,
-    rgba(205, 15, 216, 0.75) 0%,
-    rgba(52, 131, 255, 0.75) 100%
-  );
-}
-
-@font-face {
-  font-family: brand;
-  src: url(../fonts/Selfie_Printed.otf);
 }
