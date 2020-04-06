@@ -1,8 +1,8 @@
-$(window).on("load", function() {
-  $(".lds-facebook").fadeOut(2000, function() {
+$(window).on("load", function () {
+  $(".lds-facebook").fadeOut(2000, function () {
     $(this)
       .parent()
-      .fadeOut(2000, function() {
+      .fadeOut(2000, function () {
         $("body").css("overflow", "auto");
         $("body").css("overflow-x", "hidden");
         $(this).remove();
@@ -10,25 +10,22 @@ $(window).on("load", function() {
   });
 });
 
-$(document).ready(function() {
-  $(".navbar-nav>li>a").on("click", function() {
+$(document).ready(function () {
+  $(".navbar-nav>li>a").on("click", function () {
     $(".navbar-collapse").collapse("hide");
   });
 
-  var $grid = $(".grid").isotope({
-    // options
-  });
-
-  $(".portofolio-filter").on("click", "li", function() {
+  $(".portofolio-filter").on("click", "li", function () {
     var filterValue = $(this).attr("data-filter");
     $grid.isotope({ filter: filterValue });
   });
+
   $(".grid").magnificPopup({
     delegate: ".popup",
     type: "image",
     gallery: {
-      enabled: true
-    }
+      enabled: true,
+    },
   });
   // $('.grid').magnificPopup({
   //     type: 'image',
@@ -54,23 +51,23 @@ $(document).ready(function() {
       0: {
         items: 1,
         margin: 30,
-        stagePadding: 6
+        stagePadding: 6,
       },
       481: {
         items: 3,
         margin: 30,
-        stagePadding: 6
+        stagePadding: 6,
       },
       768: {
         items: 3,
-        margin: 20
+        margin: 20,
       },
       992: {
         items: 5,
         margin: 20,
-        width: 240
-      }
-    }
+        width: 240,
+      },
+    },
     // itemsMobile disabled - inherit from itemsTablet option
   });
 
@@ -89,31 +86,104 @@ $(document).ready(function() {
       0: {
         items: 1,
         margin: 20,
-        stagePadding: 10
+        stagePadding: 10,
       },
       481: {
         items: 1,
         margin: 20,
-        stagePadding: 10
+        stagePadding: 10,
       },
       768: {
         items: 2,
         margin: 20,
-        stagePadding: 10
+        stagePadding: 10,
       },
       992: {
         items: 2,
         margin: 50,
-        width: 240
-      }
-    }
+        width: 240,
+      },
+    },
     // itemsMobile disabled - inherit from itemsTablet option
   });
 
-  $(".timer").countTo();
+  var owl = $("#owl-demo4");
+
+  owl.owlCarousel({
+    autoplay: true,
+    items: 5, //10 items above 1000px browser width
+    loop: true,
+    dots: false,
+    center: true,
+    nav: true,
+    smartSpeed: 2000,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      481: {
+        items: 1,
+      },
+      767: {
+        items: 1,
+      },
+      991: {
+        items: 1,
+        loop: true,
+      },
+      1200: {
+        items: 1,
+        loop: true,
+      },
+    },
+    // itemsMobile disabled - inherit from itemsTablet option
+  });
+  var owl = $("#owl-demo5");
+
+  owl.owlCarousel({
+    autoplay: true,
+    items: 5, //10 items above 1000px browser width
+    loop: true,
+    dots: false,
+    center: true,
+    nav: true,
+    smartSpeed: 2000,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      481: {
+        items: 1,
+      },
+      767: {
+        items: 1,
+      },
+
+      991: {
+        items: 1,
+        loop: true,
+      },
+      1200: {
+        items: 1,
+        loop: true,
+      },
+    },
+    // itemsMobile disabled - inherit from itemsTablet option
+  });
+  var selector = ".portofolio-filter li";
+
+  $(selector).on("click", function () {
+    $(selector).removeClass("active");
+    $(this).addClass("active");
+  });
+  /* Act on the event */
 });
-$(window).scroll(function() {
+
+$(window).scroll(function () {
   console.log($(this).scrollTop());
+
   if ($(this).scrollTop() >= 100) {
     $(".logo-white").css("display", "block");
     $(".logo-dark").css("display", "none");
@@ -121,5 +191,4 @@ $(window).scroll(function() {
     $(".logo-dark").css("display", "block");
     $(".logo-white").css("display", "none");
   }
-  /* Act on the event */
 });

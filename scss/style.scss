@@ -69,6 +69,9 @@ a {
   .img-container {
     width: 100%;
   }
+  @media #{$max-medium} {
+    background-position: 45% 30%;
+  }
 }
 
 .navbar-header {
@@ -452,7 +455,7 @@ a {
   .abstract1 {
     position: absolute;
     top: -100px;
-    width: 650px;
+    width: 750px;
     @media #{$max-mobile} {
       width: 200px;
       top: 0;
@@ -904,7 +907,7 @@ a {
   margin-left: 10px;
 }
 
-.form-group input,
+.form-group .form-control,
 .form-group select {
   border-radius: 25px;
   border: 0;
@@ -912,7 +915,7 @@ a {
   @include shadow(0px, 5px, 30px, -5px, rgba($black, 0.2));
 }
 
-.form-group input,
+.form-group .form-control,
 .contact .form-group textarea::-webkit-input-placeholder {
   font-size: 15px;
 }
@@ -982,20 +985,42 @@ a {
   background: url(../images/breadcrumb.png) no-repeat;
   background-size: cover;
   background-position: bottom;
+  @media #{$max-medium} {
+    padding-top: 100px;
+    background-position: 20% 50%;
+  }
   h1 {
     color: $white;
+    @media #{$max-medium} {
+      color: $mainColor;
+    }
   }
   .breadcrumb-nav {
     margin-top: 40px;
     padding-left: 0;
+    @media #{$max-medium} {
+      li {
+        &.active {
+          a {
+            color: $blue !important;
+          }
+        }
+        a {
+          color: $mainColor !important;
+        }
+      }
+    }
     span {
       color: $white;
+      @media #{$max-medium} {
+        color: $mainColor;
+      }
     }
     li {
       display: inline-block;
       &.active {
         a {
-          color: $orange;
+          color: $white;
         }
       }
       a {
@@ -1003,6 +1028,221 @@ a {
         font-weight: bold;
         text-decoration: none;
       }
+    }
+  }
+}
+
+// start styling roles section
+.roles {
+  h1 {
+    margin-bottom: 50px;
+  }
+  .card {
+    border-radius: 35px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    @include shadow(0px, 0px, 25px, -5px, rgba($black, 0.2));
+    &:hover {
+      img {
+        @include scale(1.3);
+      }
+    }
+  }
+  .card-img {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 35px;
+    border-bottom-left-radius: 0;
+    img {
+      @include transition();
+    }
+  }
+  .card-desc {
+    padding: 0px 20px 20px 20px;
+    span {
+      color: $blue;
+    }
+    h3,
+    p,
+    a {
+      margin-top: 20px;
+    }
+  }
+}
+
+.job-contact {
+  h1 {
+    margin-bottom: 50px;
+  }
+  .file-upload-info {
+    position: relative;
+    overflow: hidden;
+    .btn-primary {
+      position: absolute;
+      right: 0px;
+      border-top-right-radius: 25px !important;
+      bottom: 00px;
+    }
+  }
+}
+
+.screens {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  h1,
+  p,
+  .button {
+    margin-bottom: 20px;
+  }
+  .buttons {
+    img {
+      float: left;
+      margin-right: 10px;
+    }
+    .google {
+      height: 40px;
+      width: 120px;
+    }
+    .apple {
+      height: 40px;
+      width: 120px;
+    }
+  }
+  .screens-left {
+    margin-top: 30px;
+    h1 {
+      font-weight: bold;
+    }
+  }
+  .labtop-screens,
+  .mobile-screens {
+    position: relative;
+    margin-top: 50px;
+    .mockup {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 22;
+      width: 500px;
+      margin: auto;
+    }
+    .owl-carousel {
+      .item {
+        padding-top: 15px;
+        text-align: center;
+
+        img {
+          max-width: 400px;
+          margin: auto;
+        }
+        .overflow {
+          overflow: hidden;
+          max-width: 400px;
+
+          margin: auto;
+        }
+        @media #{$max-large} {
+          padding-top: 10px;
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+        @media #{$max-medium} {
+          padding-top: 10px;
+          padding-left: 35px;
+          padding-right: 35px;
+        }
+        @media #{$max-mobilex} {
+          padding-top: 10px;
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
+    }
+  }
+  .mobile-screens {
+    .mockup {
+      width: 200px;
+    }
+    .owl-carousel {
+      .item {
+        padding-top: 10px;
+        text-align: center;
+
+        img {
+          width: 175px;
+          margin: auto;
+        }
+        .overflow {
+          overflow: hidden;
+        }
+        @media #{$max-large} {
+          padding-top: 15px;
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+        @media #{$max-medium} {
+          padding-top: 10px;
+          padding-left: 35px;
+          padding-right: 35px;
+        }
+      }
+    }
+  }
+}
+
+.screens {
+  .owl-nav {
+    .owl-next,
+    .owl-prev {
+      position: absolute;
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      span {
+        font-size: 3.5em;
+        color: $orange;
+      }
+    }
+    .owl-next {
+      right: 0px;
+      top: 45%;
+    }
+    .owl-prev {
+      left: 0px;
+      top: 45%;
+    }
+    .mobile-screens {
+      .owl-next {
+        right: 50px !important;
+      }
+      .owl-prev {
+        left: 50px !important;
+      }
+    }
+  }
+}
+
+.screens .owl-dots {
+  text-align: center;
+}
+.owl-dots {
+  margin-top: 50px;
+  .owl-dot.active {
+    background: $orange !important;
+    @include scale(1.1);
+  }
+  .owl-dot {
+    background: lighten(gray, 20%) !important;
+    height: 12px !important;
+    width: 12px !important;
+    border-radius: 50% !important;
+    margin-right: 10px;
+    &:hover,
+    &:focus {
+      outline: none;
+      box-shadow: none;
     }
   }
 }
