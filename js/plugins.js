@@ -1,23 +1,55 @@
-$(window).on("load", function () {
-  $(".lds-facebook").fadeOut(2000, function () {
-    $(this)
-      .parent()
-      .fadeOut(2000, function () {
-        $("body").css("overflow", "auto");
-        $("body").css("overflow-x", "hidden");
-        $(this).remove();
-      });
-  });
-});
+// $(window).on("load", function () {
+//   $(".lds-facebook").fadeOut(2000, function () {
+//     $(this)
+//       .parent()
+//       .fadeOut(2000, function () {
+//         $("body").css("overflow", "auto");
+//         $("body").css("overflow-x", "hidden");
+//         $(this).remove();
+//       });
+//   });
+// });
 
 $(document).ready(function () {
+  $("#button").click(function () {
+    $("html, body").animate(
+      {
+        scrollTop: $("#roles").offset().top,
+      },
+      1000
+    );
+  });
+  $("#button1").click(function () {
+    $("html, body").animate(
+      {
+        scrollTop: $("#section5").offset().top,
+      },
+      1000
+    );
+  });
+
+  var selector = ".portofolio-filter li";
+
+  $(selector).on("click", function () {
+    $(selector).removeClass("active");
+    $(this).addClass("active");
+  });
+  /* Act on the event */
+
+  $(".grid").magnificPopup({
+    type: "image",
+    closeOnContentClick: true,
+    mainClass: ".popup",
+    image: {
+      verticalFit: true,
+    },
+  });
   $(".navbar-nav>li>a").on("click", function () {
     $(".navbar-collapse").collapse("hide");
   });
-
   $(".portofolio-filter").on("click", "li", function () {
     var filterValue = $(this).attr("data-filter");
-    $grid.isotope({ filter: filterValue });
+    $(".grid").isotope({ filter: filterValue });
   });
 
   $(".grid").magnificPopup({
@@ -27,15 +59,6 @@ $(document).ready(function () {
       enabled: true,
     },
   });
-  // $('.grid').magnificPopup({
-  //     type: 'image',
-  //     closeOnContentClick: true,
-  //     mainClass: '.popup',
-  //     image: {
-  //         verticalFit: true
-  //     }
-
-  // });
   var owl = $("#owl-demo");
 
   owl.owlCarousel({
@@ -172,15 +195,7 @@ $(document).ready(function () {
     },
     // itemsMobile disabled - inherit from itemsTablet option
   });
-  var selector = ".portofolio-filter li";
-
-  $(selector).on("click", function () {
-    $(selector).removeClass("active");
-    $(this).addClass("active");
-  });
-  /* Act on the event */
 });
-
 $(window).scroll(function () {
   console.log($(this).scrollTop());
 

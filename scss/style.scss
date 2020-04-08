@@ -68,6 +68,11 @@ a {
   width: 100vw;
   .img-container {
     width: 100%;
+    img {
+      position: relative;
+      left: 14px;
+      top: 20px;
+    }
   }
   @media #{$max-medium} {
     background-position: 45% 30%;
@@ -147,6 +152,9 @@ a {
     background: $white !important;
     color: $blue !important;
     border: 1px solid $white !important;
+    @media #{$max-medium} {
+      box-shadow: none;
+    }
     &:hover {
       background: transparent !important;
       color: $white !important;

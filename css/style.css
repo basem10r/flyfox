@@ -14,87 +14,6 @@ grouping
   border-top-left-radius: 25px;
 }
 
-.lds-facebook {
-  display: inline-block;
-  position: relative;
-  width: 50px;
-  height: 50px;
-  right: 15px;
-}
-
-.lds-facebook div {
-  display: inline-block;
-  position: absolute;
-  left: 8px;
-  width: 16px;
-  background: linear-gradient(45deg, #2193b0, #6dd5ed);
-  -webkit-animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-          animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-}
-
-.lds-facebook div:nth-child(1) {
-  left: 8px;
-  -webkit-animation-delay: -0.24s;
-          animation-delay: -0.24s;
-}
-
-.lds-facebook div:nth-child(2) {
-  left: 32px;
-  -webkit-animation-delay: -0.12s;
-          animation-delay: -0.12s;
-}
-
-.lds-facebook div:nth-child(3) {
-  left: 56px;
-  -webkit-animation-delay: 0;
-          animation-delay: 0;
-}
-
-@-webkit-keyframes lds-facebook {
-  0% {
-    top: 8px;
-    height: 64px;
-  }
-  50%,
-  100% {
-    top: 24px;
-    height: 32px;
-  }
-}
-
-@keyframes lds-facebook {
-  0% {
-    top: 8px;
-    height: 64px;
-  }
-  50%,
-  100% {
-    top: 24px;
-    height: 32px;
-  }
-}
-
-.loader {
-  position: fixed;
-  background-color: white;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 9999999;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
 body {
   letter-spacing: 0px;
   margin: 0;
@@ -102,7 +21,6 @@ body {
   color: #858585;
   background: white;
   overflow-x: hidden;
-  overflow: hidden;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -6315,6 +6233,12 @@ a {
   width: 100%;
 }
 
+.header .img-container img {
+  position: relative;
+  left: 14px;
+  top: 20px;
+}
+
 @media (max-width: 992px) {
   .header {
     background-position: 45% 30%;
@@ -6401,6 +6325,13 @@ a {
   background: white !important;
   color: #2193b0 !important;
   border: 1px solid white !important;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav .btn-primary {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 }
 
 .navbar-nav .btn-primary:hover {
